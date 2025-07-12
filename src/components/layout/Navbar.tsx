@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Navbar() {
   return (
     <nav className="max-w-7xl mx-auto h-16 flex items-center gap-3 px-5">
@@ -31,7 +33,11 @@ export default function Navbar() {
             fill="#22C55E"
           />
         </svg>{" "}
-        <span className="font-bold ml-2 text-xl">Task</span>
+        <span className="font-bold ml-2 ">Task</span>Manager
+      </div>
+      <div className="flex items-center gap-1 font-semibold">
+        <Link to="/users">User</Link>
+        <Link to="/tasks">Task</Link>
       </div>
     </nav>
   );
