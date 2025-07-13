@@ -1,4 +1,4 @@
-export interface ITask {
+interface ITask {
   id: string;
   title: string;
   description: string;
@@ -6,3 +6,4 @@ export interface ITask {
   isCompleted: boolean;
   priority: "Low" | "Medium" | "High";
 }
+export default ITask;

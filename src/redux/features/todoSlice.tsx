@@ -1,6 +1,6 @@
-import type { ITask } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
+import type ITask from "@/types";
 
 interface InitialState {
   tasks: ITask[];
@@ -16,6 +16,22 @@ const initialState: InitialState = {
       dueDate: "2025-11",
       isCompleted: false,
       priority: "High",
+    },
+    {
+      id: "asdfg",
+      title: "Initial Pro",
+      description: "Lorem ipsum doler sit",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "Low",
+    },
+    {
+      id: "asdfg",
+      title: "Initial Pro",
+      description: "Lorem ipsum doler sit",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "Medium",
     },
   ],
   filter: "all",
