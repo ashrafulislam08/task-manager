@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -11,13 +10,12 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 export function AddTaskModal() {
   const form = useForm();
@@ -34,7 +32,7 @@ export function AddTaskModal() {
           <DialogTitle>Add Task</DialogTitle>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
             <FormField
               control={form.control}
               name="title"
@@ -42,17 +40,34 @@ export function AddTaskModal() {
                 <FormItem>
                   <FormLabel>Title</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Title" />
+                    <Input
+                      {...field}
+                      placeholder="Title"
+                      value={field.value || ""}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      {...field}
+                      placeholder="Description"
+                      value={field.value || ""}
+                    />
                   </FormControl>
                 </FormItem>
               )}
             />
 
             <DialogFooter className="mt-8">
-              <DialogClose asChild>
-                <Button variant="outline">Cancel</Button>
-              </DialogClose>
-              <Button type="submit">Save changes</Button>
+              <Button type="submit">Save</Button>
             </DialogFooter>
           </form>
         </Form>
